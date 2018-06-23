@@ -84,7 +84,7 @@ async def rule34get(tags = None, limit: int = 50, pid: int = None) -> list:
 	limit: Optional[:class:`int`]
 		the amount of images to retrive from rule34
 		must be between 1 and 100 as per API rules
-	pid Optional[:class:`int`]
+	pid: Optional[:class:`int`]
 		specify this to search for a post with a specific id
 		instead of using tags to search
 
@@ -100,7 +100,7 @@ async def rule34get(tags = None, limit: int = 50, pid: int = None) -> list:
 
 	Yields
 	-----------
-	list[:class:Rule34Image]
+	list [:class:`Rule34Image`]
 		a list of image objects fetched from rule34.xxx
 	'''
 	if tags is None and pid is None:

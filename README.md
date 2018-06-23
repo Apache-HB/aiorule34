@@ -2,7 +2,7 @@
 
 ## Installation
 
-~~pip install aiorule34~~ once i manage to make twine work properly
+pip install aiorule34
 
 ## Usage
 ```
