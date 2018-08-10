@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup (
 	name = 'aiorule34',
-	version = '1.2.0',
+	version = '1.2.1',
 	description = 'an async wrapper for rule34.xxx',
 	url = 'https://github.com/Apache-HB/aiorule34',
 	author = 'Elliot Haisley',
