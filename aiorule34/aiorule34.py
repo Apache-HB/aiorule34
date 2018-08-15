@@ -1,5 +1,6 @@
 import aiohttp
 from defusedxml.ElementTree import fromstring
+from typing import List
 
 class Rule34Image:
 	'''Represents a post from rule34.xxx
@@ -10,51 +11,51 @@ class Rule34Image:
 		the url to the full file
 	tags: list[:class:`str`]
 		the images tags
-	file_url= [:class:`str`]
+	file_url: [:class:`str`]
 		the url to the full file
 		also aliased to url
-	source [:class:`str`]
+	source: [:class:`str`]
 		a url to the source material (the artists tumblr/website)
-	height [:class:`str`]
+	height: [:class:`str`]
 		the height of the full size image
-	width [:class:`str`]
+	width: [:class:`str`]
 		the width of the image
-	id [:class:`str`]
+	id: [:class:`str`]
 		the post id
 		useful for reaquiring the image later on by passing it as pid to rule34get
-	preview_url [:class:`str`]
+	preview_url: [:class:`str`]
 		the url for the preview image
-	preview_height [:class:`str`]
+	preview_height: [:class:`str`]
 		the height of the preview image
-	preview_width [:class:`str`]
+	preview_width: [:class:`str`]
 		the width of the preview image
-	sample_url [:class:`str`]
+	sample_url: [:class:`str`]
 		the url to the sample image
-	sample_height [:class:`str`]
+	sample_height: [:class:`str`]
 		the height of the sample image
-	sample_width [:class:`str`]
+	sample_width: [:class:`str`]
 		the width of the example image
-	md5 [:class:`str`]
+	md5: [:class:`str`]
 		the images hash
-	parent_id [:class:`str`]
+	parent_id: [:class:`str`]
 		the id of the parent post, empty if theres no parent
-	rating [:class:`str`]
+	rating: [:class:`str`]
 		the rating of the post (usually "e" for explicit)
 	change: [:class:`str`]
 		the time the image was last edited
-	created_at [:class:`str`]
+	created_at: [:class:`str`]
 		the time the image was last edited
-	creator_id [:class:`str`]
+	creator_id: [:class:`str`]
 		the id of the author
-	score [:class:`int`]
+	score: [:class:`int`]
 		the images score
-	status [:class:`str`]
+	status: [:class:`str`]
 		the status of the image
-	has_children [:class:`bool`]
+	has_children: [:class:`bool`]
 		does the post have children
-	has_comments [:class:`bool`]
+	has_comments: [:class:`bool`]
 		does the post have comments
-	has_notes [:class:`bool`]
+	has_notes: [:class:`bool`]
 		does the post have notes
 	'''
 	def __init__(self, **kwargs):
@@ -73,7 +74,7 @@ class Rule34Image:
 		self.has_notes = kwargs['has_notes'] == "true"
 		self.score = int(kwargs['score'])
 
-async def rule34get(tags = None, limit: int = 50, pid: int = None) -> list:
+async def rule34get(tags = None, limit: int = 50, pid: int = None) -> List[Rule34Image]:
 	'''Fetch a certain amount of images asyncronously from rule34.xxx
 
 	Parameters
